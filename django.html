@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>problem</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <style>
+         .a1{
+            display:block; /* 把行内元素 变成 块级元素 */
+            width:50px; /* 盒子 宽度 */
+            height:20px; /* 盒子 高度 */
+            text-decoration:none;
+        }
+         .a2{
+             display:block; /* 把行内元素 变成 块级元素 */
+             width:400px; /* 盒子 宽度 */
+             height:20px; /* 盒子 高度 */
+             text-decoration:none;
+         }
+         .a3{
+             display:block; /* 把行内元素 变成 块级元素 */
+             width:50px; /* 盒子 宽度 */
+             height:20px; /* 盒子 高度 */
+             text-decoration:none;
+         }
+         .tab001{
+             text-align: center;
+             color: white;
+         }
+        .tabrow{
+            display: none;
+        }
+    </style>
+    <script>
+        $(function(){
+            //tr:eq(0)是指第一个tr eq=equal
+            //tr:gt(0)是指除去第一个以外的所有tr gt=grater than
+            $("tr:eq(0)").css("background-color","#1A9CC1"); //标题的样式
+            $("tr:gt(0):even").css("background-color","#fff"); //奇数行的样式
+            $("tr:gt(0):odd").css("background-color","#D7EBFF"); //偶数行的样式
+            $("tr:gt(0)").mouseenter(function(){
+                var color = $(this).css("background-color");
+                $(this).css("background-color","#1AA4F1");
+                $(this).mouseleave(function(){
+                    $(this).css("background-color",color);
+                });
+                $(this).mousedown(function(){
+                    $(this).css("background-color","#1fA1F9");
+                });
+                $(this).mouseup(function(){
+                    $(this).css("background-color","#1AA4F1");
+                });
+            });
+        });
+        $(function(){
+            $("#dwad").click(function(){
+                if($('td[name=\'row3\']').hasClass("tabrow"))
+                    $('td[name=\'row3\']').removeClass("tabrow");
+                else
+                    $('td[name=\'row3\']').addClass("tabrow");
+            });
+        })
+    </script>
+</head>
+<body>
+    <table>
+        <tr class="tab001">
+            <td>
+                    编号
+            </td>
+            <td>
+                    题目
+            </td>
+            <td name="row3" class="tabrow">
+                    编辑
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="###" class="a1">
+                    编号
+                </a>
+            </td>
+            <td>
+                <a href="###" class="a2">
+                    题目
+                </a>
+            </td>
+            <td name="row3" class="tabrow">
+                <a href="###" class="a3">
+                    编辑
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="###" class="a1">
+                    编号
+                </a>
+            </td>
+            <td>
+                <a href="###" class="a2">
+                    题目
+                </a>
+            </td>
+            <td name="row3" class="tabrow">
+                <a href="###" class="a3">
+                    编辑
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="###" class="a1">
+                    编号
+                </a>
+            </td>
+            <td>
+                <a href="###" class="a2">
+                    题目
+                </a>
+            </td>
+            <td name="row3" class="tabrow">
+                <a href="###" class="a3">
+                    编辑
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="###" class="a1">
+                    编号
+                </a>
+            </td>
+            <td>
+                <a href="###" class="a2">
+                    题目
+                </a>
+            </td>
+            <td name="row3" class="tabrow">
+                <a href="###" class="a3">
+                    编辑
+                </a>
+            </td>
+        </tr>
+    </table>
+<button id="dwad" onclick="dwad()">adw</button>
+</body>
+</html>
