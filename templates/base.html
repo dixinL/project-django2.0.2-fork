@@ -22,69 +22,41 @@
             width: 100%;
             line-height: 30px;
             padding-left: 20px;
-            min-width: 1300px;
+
             background-color: #0f0f0f;
         }
         section{
             min-height: 600px;
         }
-        footer{
-            background: #4CB4FE;
-            height: 50px;
-            text-align: center;
-            line-height: 50px;
-            min-width: 1300px;
-        }
-        #container{
-            width: 1250px;
-            min-height: 600px;
-            overflow: hidden;
-            margin: auto;
-            background: #4CB4FE;
-            padding-bottom: 10px;
-        }
+
         .center{
-        width: 100%;
+            width: 100%;
             display: -webkit-flex;
            -webkit-justify-content: center;
            -webkit-align-items: center;
-            padding-top: 30px;
-            padding-bottom: 30px;
         }
-
+        input{
+            width: 180px;
+            height: 35px;
+        }
     </style>
-<script>
-    function tab() {
-        var url = window.location.href;
-        var str = url.substring(22,25);
-        var str1= url.substring(0,3);
-        if(str1=="htt"){
-            $("#uplo1").css("display","none");
-            if (str=="hom"){
-            $("#home1").addClass('active');
-        }else if (str=="pla"){
-            $("#play1").addClass('active');
-        }else if (str=="upl"){
-            $("#uplo1").addClass("active");
-        }else {
-            $("#home1").addClass("active");
-        }
-        }
-    }
-</script>
 </head>
-<body onload="tab()">
-<div class="nav1">
-
+<body>
     {% include 'navbar.html' %}
-</div>
-    <section>
-        <div class="center">
-                      {% block content %}
+<div class="center">
+              {% block content %}
 
-                      {% endblock %}
-        </div>
-    </section>
-<footer>版权所有</footer>
+              {% endblock %}
+</div>
+    <div style="height: 50px">
+
+    </div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid" style="padding: 0 47%">
+      <div style="width: 80px">
+          版权所有
+      </div>
+  </div>
+</nav>
 </body>
 </html>

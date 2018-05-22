@@ -15,7 +15,7 @@
         padding: 30px;
             margin: auto;
         position: relative;
-        top: 120px;
+        top: 30px;
         display:inline-block;
           *display:inline;
           *zoom:1;
@@ -34,10 +34,42 @@
       {% csrf_token %}
       <tr>
           <td>
-              请输入孩子年龄：
+              身份证号：
           </td>
           <td>
-              {{ form.child_age }}
+              {{ form.id_card }}
+          </td>
+      </tr>
+
+      <tr>
+          <td>
+              真实姓名：
+          </td>
+          <td>
+              {{ form.real_name }}
+          </td>
+      </tr>
+      <tr>
+          <td>
+              电话号码：
+          </td>
+          <td>
+              {{ form.phone_number }}
+          </td>
+      </tr><tr>
+          <td>
+              学历：
+          </td>
+          <td>
+              {{ form.education }}
+          </td>
+      </tr>
+      <tr>
+          <td>
+              职业：
+          </td>
+          <td>
+              {{ form.profession }}
           </td>
       </tr>
       <tr>
