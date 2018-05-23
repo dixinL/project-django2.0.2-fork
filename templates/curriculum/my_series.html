@@ -19,15 +19,15 @@
             <div style="width: 400px">
                 授课教师：
                 <span>
-                    老师
+                    {{ series.owner.username }}
                 </span>
                 <br/>
                 <p style="word-wrap:break-word; word-break:normal;">
-                    ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp
+                    {{ series.information }}
                 </p>
                 <div>
                     <span style="border:1px solid #ccc;">
-                        dwadaf
+                        {{ series.tag }}
                     </span>
                 </div>
             </div>
@@ -43,10 +43,13 @@
             <br/>
             {% endfor %}
             {% if add %}
-            <a href="{% url 'add_curriculum' series %}">添加课程</a>
+            <a href="{% url 'add_curriculum' series.id %}">添加课程</a>
             {% endif %}
         </div>
     </div>
 </div>
+
+
+
 
 {% endblock %}

@@ -1,23 +1,5 @@
 {% extends "curriculum/play_script.html" %}
-{% block js %}
-{% load static %}
 
-<script src="{% static 'curriculum/jquery-3.3.1.js' %}"></script>
-<style>
-    textarea{
-        width: 750px;
-        height: 50px;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-        border-radius: 5px;
-    }
-    .radi{
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-        border-radius: 5px;
-    }
-</style>
-{% endblock %}
 {% block content %}
 <div class="container-fluid" style="margin: 0px 15px">
     <div class="row">
@@ -36,7 +18,7 @@
         </div>
         <div class="col-lg-2">
             {% for i in cur_list %}
-            <button about="{{ i.id }}" id="but{{ forloop.counter }}" style="width: 210px">第{{ i.name }}集</button>
+            <button id="but{{ forloop.counter }}" style="width: 210px" onclick="loadXMLDoc({{ i.id }})">{{ i.name }}</button>
             <br>
             {% endfor %}
         </div>
@@ -44,31 +26,12 @@
     <div class="row">
         <div class="col-lg-8">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-2">
-                        <div class="thumbnail">
-                          <img src="/static/curriculum/image/qwe.jpg">
-                              <div class="caption">
-                                <h3>{{ i.name }}</h3>
-                                <p>{{ i.information }}</p>
-                                <p>
-                                    <a href="" class="btn btn-primary" role="button">Button</a>
-                                </p>
-                              </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="thumbnail">
-                          <img src="/static/curriculum/image/qwe.jpg">
-                              <div class="caption">
-                                <h3>{{ i.name }}</h3>
-                                <p>{{ i.information }}</p>
-                                <p>
-                                    <a href="" class="btn btn-primary" role="button">Button</a>
-                                </p>
-                              </div>
-                        </div>
-                    </div>
+                <div class="row" id="jd_book">
+
+
+
+
+
                 </div>
             </div>
             <div id="msgBox" onload="tab()">
@@ -103,7 +66,7 @@
         </div>
         <div class="col-lg-4">
             {% for i in cur_list %}
-            <button about="{{ i.id }}" id="but{{ forloop.counter }}" style="width: 300px;height: 150px">第{{ i.name }}集</button>
+            <button about="{{ i.id }}" id="" style="width: 300px;height: 150px">第{{ i.name }}集</button>
             <br>
             {% endfor %}
         </div>

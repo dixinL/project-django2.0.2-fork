@@ -24,7 +24,7 @@
 {% endblock %}
 {% block content %}
 <div class="incenter">
-{% if is_teacher %}
+{% if who == 'teachers' %}
 <li><a href="{% url 'my_series_list' %}">我的系列课程</a></li>
 
 {% else %}
