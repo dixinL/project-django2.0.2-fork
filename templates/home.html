@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+
+{% block title %}欢迎光临首页{% endblock %}
+ {% block js %}
+{% load static %}
+
+<script src="{% static 'curriculum/jquery-3.3.1.js' %}"></script>
+
+{% endblock %}
+{% block style %}
+
+<style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+
+        ul{
+            list-style: none;
+        }
+        #imgs img{
+            display: block;
+            width: 100%;
+            height: 500px;
+        }
+        #container{
+            width: 100%;
+            height: 500px;
+            margin: 0px;
+            position: relative;
+        }
+        #imgs img{
+            display: none;
+        }
+        #imgs .selected{
+            display: block;
+        }
+        #tab{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            cursor: pointer;
+        }
+        #tab li , #rows span{
+            width: 20px;
+            height: 20px;
+
+
+            margin:0 5px;
+            float: left;
+            text-align: center;
+            line-height: 20px;
+
+        }
+        #tab .selected{
+            background-color: #eea236;
+        }
+        #rows{
+            cursor: pointer;
+            position: absolute;
+            left: 10px;
+            bottom: 20px;
+        }
+        }
+    </style>
+{% endblock %}
+{% block content %}
+<div id="container" style="position: relative;top: -20px">
+    <div id="imgs" style="width: 100%">
+        <img src="/static/curriculum/image/001.png" class="selected">
+        <img src="/static/curriculum/image/002.png">
+        <img src="/static/curriculum/image/003.png">
+        <img src="/static/curriculum/image/004.png">
+        <img src="/static/curriculum/image/005.png">
+    </div>
+    <ul id="tab">
+        <li class="selected">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <div id="rows">
+        <span id="prev">&lt;</span>
+        <span id="next">&gt;</span>
+    </div>
+</div>
+
+{% endblock %}
+{% block downjs %}
+<script>
+    let oTab=document.getElementById("tab");
+    let aLi=oTab.getElementsByTagName("li");
+    let oImgs=document.getElementById("imgs");
+    let aImg=oImgs.getElementsByTagName("img");
+    let oPrev=document.getElementById("prev");
+    let oNext=document.getElementById("next");
+    let oContainer=document.getElementById("container");
+    let iNowIndex=0;
+    for(let i=0;i<aLi.length;i++){
+        aLi[i].index=i;
+        aLi[i].onmouseover=function () {
+            iNowIndex=aLi[i].index;
+            for(let i=0;i<aLi.length;i++){
+                aLi[i].className="";
+                aImg[i].className="";
+            }
+            aLi[i].className="selected";
+            aImg[this.index].className="selected"
+        }
+    }
+    oPrev.onclick = oNext.onclick=function () {
+        if(this === oPrev){
+            iNowIndex--;
+            if(iNowIndex == -1){
+                iNowIndex=aLi.length-1;
+            }
+        }else{
+            iNowIndex++;
+            if(iNowIndex==aLi.length){
+                iNowIndex=0;
+            }
+        }
+        for(let i=0;i<aLi.length;i++){
+            aLi[i].className="";
+            aImg[i].className=""
+        }
+        aLi[iNowIndex].className="selected";
+        aImg[iNowIndex].className="selected";
+    };
+    oNext.onselectstart=oPrev.onselectstart=function () {
+        return false;
+    };
+    let timer=setInterval(function () {
+        oNext.onclick();
+    },1000)
+    oContainer.onmouseover=function () {
+        clearInterval(timer);
+
+    }
+    oContainer.onmouseout=function () {
+        timer=setInterval(function () {
+            oNext.onclick()
+        },1000
+        )
+
+    }
+</script>
+{% endblock %}

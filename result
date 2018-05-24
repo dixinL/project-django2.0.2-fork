@@ -1,0 +1,1 @@
+{'compilation': {'success': True, 'log': ''}, 'testcases': [{'memory': 516096, 'result': 'WRONG_ANSWER', 'time': 0.003}, {'memory': 385024, 'result': 'WRONG_ANSWER', 'time': 0.004}]}
