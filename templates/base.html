@@ -8,10 +8,16 @@
     <meta charset="UTF-8">
     {% block style %}
     <style type="text/css">
-        body,td,th {
+        body{
             font-family: Microsoft YaHei UI, sans-serif;
             font-size: 16px;
-
+            line-height:30px;
+            background-image: url(/static/curriculum/image/000.jpg);
+            background-repeat: repeat;
+        }
+        td,th{
+            font-family: Microsoft YaHei UI, sans-serif;
+            font-size: 16px;
             line-height:30px;
         }
         html,body,div,ul,
@@ -62,5 +68,6 @@
   </div>
 </nav>
 </body>
-{% block downjs %}{% endblock %}
+{% block downjs %}
+{% endblock %}
 </html>

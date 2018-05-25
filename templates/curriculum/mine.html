@@ -15,7 +15,7 @@
         padding: 30px;
             margin: auto;
         position: relative;
-        top: 120px;
+        top: 180px;
         display:inline-block;
           *display:inline;
           *zoom:1;
@@ -25,13 +25,13 @@
 {% block content %}
 <div class="incenter">
 {% if who == 'teachers' %}
-<li><a href="{% url 'my_series_list' %}">我的系列课程</a></li>
+<a href="{% url 'my_series_list' %}"><button>我的系列课程</button></a>
 
 {% else %}
-<li><a href="{% url 'my_series_list' %}">我参加的系列课程</a></li>
+<a href="{% url 'my_series_list' %}"><button>我参加的系列课程</button></a>
 
 {% endif %}
-<li><a href="{% url 'user_info' %}">个人信息</a></li>
+<a href="{% url 'user_info' %}"><button>个人信息</button></a>
 
 {% for i in list %}
 <a href="{% url 'play' i.series.id %}">{{ i.name }}</a>

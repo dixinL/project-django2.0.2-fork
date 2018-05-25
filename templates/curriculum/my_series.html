@@ -44,9 +44,9 @@
             {% endfor %}
             {% if add %}
             <a href="{% url 'add_curriculum' series.id %}"><button style="width: 180px;height:40px">添加课程</button></a>
+            {% endif %}
             <br/>
             <a href="{% url 'problem_list' series.id %}"><button style="width: 180px;height:40px">题目列表</button></a>
-            {% endif %}
         </div>
     </div>
 </div>

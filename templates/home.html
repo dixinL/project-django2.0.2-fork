@@ -14,7 +14,13 @@
             margin:0;
             padding: 0;
         }
-
+        body{
+            font-family: Microsoft YaHei UI, sans-serif;
+            font-size: 16px;
+            line-height:30px;
+            background-image: url(/static/curriculum/image/000.jpg);
+            background-repeat: repeat;
+        }
         ul{
             list-style: none;
         }
@@ -37,20 +43,17 @@
         }
         #tab{
             position: absolute;
-            right: 10px;
+            right: 44%;
             bottom: 10px;
             cursor: pointer;
         }
         #tab li , #rows span{
             width: 20px;
             height: 20px;
-
-
-            margin:0 5px;
+            margin: 0 5px;
             float: left;
             text-align: center;
             line-height: 20px;
-
         }
         #tab .selected{
             background-color: #eea236;
@@ -60,13 +63,74 @@
             position: absolute;
             left: 10px;
             bottom: 20px;
+            display: none;
         }
+        #move
+        {
+            position:relative;
+            animation:mymove 10s infinite;
+            -webkit-animation:mymove 10s infinite; /* Safari and Chrome */
+        }
+
+        @keyframes mymove
+        {
+            0%   {top:0px;}
+            5%  {top:-80px;}
+            9%  {top:-10px;}
+            12%  {top:-40px;}
+            100% {top:-40px;}
+        }
+
+        @-moz-keyframes mymove /* Firefox */
+        {
+            0%   {top:0px;}
+            5%  {top:-200px;}
+            9%  {top:-160px;}
+            12%  {top:-180px;}
+            100% {top:-180px;}
+        }
+
+        @-webkit-keyframes mymove /* Safari 和 Chrome */
+        {
+            0%   {top:0px;}
+            5%  {top:-200px;}
+            9%  {top:-160px;}
+            12%  {top:-180px;}
+            100% {top:-180px;}
+        }
+        @-o-keyframes mymove /* Opera */
+        {
+            0%   {top:0px;}
+            5%  {top:-200px;}
+            9%  {top:-160px;}
+            12%  {top:-180px;}
+            100% {top:-180px;}
+        }
+        #mov{
+            position: absolute;
+            top: 420px;
+            float: right;
+            right: 50px;
+        }
+        .imaa{
+            display: none;
+        }
+        .ima1{
+        }
+        .ima2{
         }
     </style>
 {% endblock %}
 {% block content %}
 <div id="container" style="position: relative;top: -20px">
-    <div id="imgs" style="width: 100%">
+    <div id="imgs" style="width: 100%" class="imaa ima1">
+        <img src="/static/curriculum/image/001.png" class="selected">
+        <img src="/static/curriculum/image/002.png">
+        <img src="/static/curriculum/image/003.png">
+        <img src="/static/curriculum/image/004.png">
+        <img src="/static/curriculum/image/005.png">
+    </div>
+    <div id="imgs" style="width: 100%" class="imaa ima2">
         <img src="/static/curriculum/image/001.png" class="selected">
         <img src="/static/curriculum/image/002.png">
         <img src="/static/curriculum/image/003.png">
@@ -85,10 +149,21 @@
         <span id="next">&gt;</span>
     </div>
 </div>
+<div id="mov">
+    <div id="move">
+        <img src="/static/curriculum/image/006.png" style="width: 300px">
 
+    </div>
+</div>
 {% endblock %}
 {% block downjs %}
 <script>
+    var wid = window.screen.width;
+        if (wid>640){
+            $('.ima1').removeClass("imaa");
+        }else{
+            $('.ima2').removeClass('imaa');
+        }
     let oTab=document.getElementById("tab");
     let aLi=oTab.getElementsByTagName("li");
     let oImgs=document.getElementById("imgs");
